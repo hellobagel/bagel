@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Outer glow ring -->
+  <circle cx="60" cy="60" r="48"
+          stroke="#C88A46" stroke-opacity="0.15" stroke-width="1.5"/>
+  <!-- Main arc — 20 degree gap at bottom -->
+  <path d="M60 12 A48 48 0 1 1 34.6 103.1"
+        stroke="#C88A46"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        fill="none"/>
+  <!-- Gap dot -->
+  <circle cx="60" cy="108" r="3.2" fill="#C88A46"/>
+</svg>
