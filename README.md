@@ -4,7 +4,7 @@ Built around people, not notifications.
 
 ## Developer Preview 1
 
-Version 0.1.0
+Version 0.1.3
 
 Website
 
