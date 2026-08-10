@@ -1,9 +1,13 @@
 # Bagel Changelog
 
-## v0.1.0 — First Public Website
+## v0.1.0 — Developer Preview 1
+**August 2026**
 
-- Official website launched
-- GitHub Pages deployment
-- Hero section
-- Developer Preview branding
-- Initial landing page
+- Core messaging with end-to-end encryption
+- Bagel Loop identity and presence system
+- Three presence modes: Standard, Stealth, Incognito
+- Local peer discovery via Nearby Connections
+- Liquid glass design language throughout
+- Offline-first message storage
+- Privacy indicators for mic, camera, location
+- Official website launched at hellobagel.github.io/bagel

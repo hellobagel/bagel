@@ -4,215 +4,461 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#FCFAF7" />
-  <title>Bagel — Built Around People</title>
-  <meta name="description" content="A thoughtful messaging platform built around people, privacy, and meaningful conversations." />
 
-  <link rel="icon" type="image/jpeg" href="favicon.jpg" />
+  <title>Bagel — Built Around People</title>
+  <meta name="description" content="Bagel is a thoughtful messaging platform built around people, privacy and meaningful conversations." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bagel — Built Around People" />
+  <meta property="og:description" content="A thoughtful messaging platform built around people, privacy and meaningful conversations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hellobagel.github.io/bagel/" />
+  <meta property="og:image" content="assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bagel — Built Around People" />
+  <meta name="twitter:description" content="A thoughtful messaging platform built around people, privacy and meaningful conversations." />
+  <meta name="twitter:image" content="assets/og.png" />
+
+  <link rel="canonical" href="https://hellobagel.github.io/bagel/" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Typography -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
+
 <body>
 
-  <!-- Announcement Bar -->
-  <div class="announcement-bar" role="alert">
-    <p>Developer Preview available.</p>
+  <!-- ── ANNOUNCEMENT BAR ──────────────────────────────────── -->
+  <div class="announcement" role="banner" id="announcement">
+    <span class="announcement__text">
+      <!-- CONFIGURABLE: update this text for each release -->
+      Developer Preview is now available.
+    </span>
+    <button class="announcement__close" aria-label="Dismiss announcement" onclick="this.parentElement.style.display='none'">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
   </div>
 
-  <!-- Navigation -->
-  <nav class="nav" aria-label="Main navigation">
-    <div class="nav__inner container">
-      <a href="/" class="nav__logo" aria-label="Bagel Home">bagel.</a>
-      
-      <button class="nav__mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
-        <span class="hamburger"></span>
+  <!-- ── NAV ──────────────────────────────────────────────── -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+
+      <a href="/" class="nav__logo" aria-label="Bagel home">
+        <svg class="nav__ring" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 3A13 13 0 1 1 8 25.3" stroke="#C88A46" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="16" cy="29" r="2" fill="#C88A46"/>
+        </svg>
+        <span class="nav__wordmark">Bagel</span>
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="#download" class="nav__link">Download</a></li>
+        <li><a href="#changelog" class="nav__link">Changelog</a></li>
+        <li>
+          <a href="https://github.com/hellobagel" class="nav__link"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="GitHub (opens in new tab)">GitHub</a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/bagelchat?igsh=MW1mMHhxMHpmMncxcA=="
+             class="nav__link" target="_blank" rel="noopener noreferrer"
+             aria-label="Instagram (opens in new tab)">Instagram</a>
+        </li>
+      </ul>
+
+      <button class="nav__menu-btn" aria-label="Open menu" aria-expanded="false" id="menuBtn">
+        <span></span><span></span>
       </button>
 
-      <ul class="nav__links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#download">Download</a></li>
-        <li><a href="#changelog">Changelog</a></li>
-        <li><a href="https://github.com/hellobagel" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-        <li><a href="https://instagram.com/bagelchat" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="nav__mobile" id="mobileMenu" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#download" class="nav__mobile-link">Download</a></li>
+        <li><a href="#changelog" class="nav__mobile-link">Changelog</a></li>
+        <li><a href="https://github.com/hellobagel" class="nav__mobile-link" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.instagram.com/bagelchat?igsh=MW1mMHhxMHpmMncxcA==" class="nav__mobile-link" target="_blank" rel="noopener noreferrer">Instagram</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
-    <!-- Hero Section -->
-    <section id="home" class="hero container">
-      <div class="hero__content reveal">
-        <h1 class="hero__headline">
-          Every conversation <br/>
-          <em>starts with an opening.</em>
-        </h1>
-        <p class="hero__sub">Built around people, not notifications.</p>
-        <div class="hero__actions">
-          <a href="#download" class="btn btn--primary">Download Preview</a>
-          <a href="#changelog" class="btn btn--secondary">View Changelog</a>
-        </div>
-      </div>
-      <div class="hero__visual reveal reveal--delay">
-        <div class="device-mockup">
-          <img src="Screenshot 2026-08-06 at 23.52.50.png" alt="Bagel App Interface" class="device-screen" loading="lazy" />
-          <div class="ambient-glow"></div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Product Philosophy -->
-    <section class="philosophy container">
-      <div class="philosophy__grid">
-        <div class="philosophy__pillar reveal">
-          <h3>Thoughtful by design</h3>
-          <p>Every detail is meticulously crafted. The interface fades away so you can focus entirely on the conversation.</p>
-        </div>
-        <div class="philosophy__pillar reveal reveal--delay">
-          <h3>Fast by default</h3>
-          <p>Engineered for native performance. Fluid interactions and zero lag keep you perfectly in sync.</p>
-        </div>
-        <div class="philosophy__pillar reveal reveal--delay-2">
-          <h3>Built around people</h3>
-          <p>Private messages that belong to you. No algorithms, no servers reading your text, just human connection.</p>
-        </div>
-      </div>
-    </section>
+    <!-- ── HERO ─────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero__inner">
 
-    <!-- Product Preview -->
-    <section class="preview container">
-      <div class="preview__grid">
-        <div class="preview__text reveal">
-          <span class="eyebrow">A Closer Look</span>
-          <h2>Refined down to the essentials.</h2>
-          <p>We removed the noise so you can hear the signal. The interface is designed to support your conversations without demanding your attention.</p>
-        </div>
-        <div class="preview__image reveal reveal--delay">
-          <img src="hero.webp" alt="Bagel core experience" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <!-- What's New -->
-    <section class="whats-new container reveal">
-      <div class="release-card glass-panel">
-        <div class="release-card__header">
-          <div class="release-card__meta">
-            <span class="label">Current Channel</span>
-            <h4>Developer Preview</h4>
+        <div class="hero__content">
+          <div class="hero__badge reveal">
+            <!-- CONFIGURABLE -->
+            <span class="hero__badge-dot" aria-hidden="true"></span>
+            Developer Preview
           </div>
-          <div class="release-card__meta text-right">
-            <span class="label">Current Version</span>
-            <h4>v0.1.0</h4>
+
+          <h1 class="hero__heading reveal reveal--d1" id="hero-heading">
+            Every conversation<br/>
+            starts with <em>an opening.</em>
+          </h1>
+
+          <p class="hero__sub reveal reveal--d2">
+            Built around people, not notifications.
+          </p>
+
+          <div class="hero__actions reveal reveal--d3">
+            <a href="#download" class="btn btn--primary">
+              Download Preview
+            </a>
+            <a href="#changelog" class="btn btn--ghost">
+              View Changelog
+            </a>
           </div>
         </div>
-        <div class="release-card__body">
-          <ul class="release-notes">
-            <li>Initial release of the core messaging engine.</li>
-            <li>Introduced the seamless "Loop" connection interface.</li>
-            <li>Optimized end-to-end encryption pipeline for text and media.</li>
+
+        <div class="hero__visual reveal reveal--d2">
+          <div class="phone-wrap" aria-label="Bagel app preview" role="img">
+            <div class="phone">
+              <div class="phone__frame">
+                <!-- Dynamic island -->
+                <div class="phone__island" aria-hidden="true"></div>
+                <div class="phone__screen">
+                  <!-- Simulated Bagel UI -->
+                  <div class="app">
+                    <div class="app__header">
+                      <span class="app__wordmark">bagel<span style="color:#C88A46;font-style:italic">.</span></span>
+                    </div>
+                    <div class="app__body">
+                      <svg viewBox="0 0 72 72" fill="none" class="app__ring" aria-hidden="true">
+                        <circle cx="36" cy="36" r="28" stroke="#C88A46" stroke-opacity="0.15" stroke-width="1.2"/>
+                        <path d="M36 8 A28 28 0 1 1 20.4 59.4" stroke="#C88A46" stroke-width="1.8" stroke-linecap="round"/>
+                        <circle cx="36" cy="64" r="2.2" fill="#C88A46"/>
+                      </svg>
+                      <p class="app__quiet">your loop is quiet</p>
+                      <p class="app__hint">tap the loop to find someone nearby</p>
+                    </div>
+                    <div class="app__dock" aria-hidden="true">
+                      <div class="app__dock-icon"></div>
+                      <div class="app__loop">
+                        <div class="app__loop-hole"></div>
+                      </div>
+                      <div class="app__dock-icon"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Ambient glow -->
+              <div class="phone__glow" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PHILOSOPHY ────────────────────────────────────────── -->
+    <section class="philosophy" aria-labelledby="philosophy-heading">
+      <div class="section-inner">
+        <h2 class="sr-only" id="philosophy-heading">Product philosophy</h2>
+
+        <div class="pillars">
+          <article class="pillar reveal">
+            <div class="pillar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#C88A46" stroke-width="1.5"/>
+                <path d="M12 6v6l4 2" stroke="#C88A46" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="pillar__title">Thoughtful by design.</h3>
+            <p class="pillar__body">
+              Every detail is considered. Every animation has purpose.
+              The interface disappears so relationships can take its place.
+            </p>
+          </article>
+
+          <article class="pillar reveal reveal--d1">
+            <div class="pillar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#C88A46" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="pillar__title">Fast by default.</h3>
+            <p class="pillar__body">
+              Offline-first. Room database as source of truth.
+              Messages appear instantly. The network catches up.
+            </p>
+          </article>
+
+          <article class="pillar reveal reveal--d2">
+            <div class="pillar__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#C88A46" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="9" cy="7" r="4" stroke="#C88A46" stroke-width="1.5"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#C88A46" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="pillar__title">Built around people.</h3>
+            <p class="pillar__body">
+              No algorithms. No engagement traps. No data sold.
+              Just the people you care about, clearly.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PRODUCT PREVIEW ───────────────────────────────────── -->
+    <section class="product" aria-labelledby="product-heading">
+      <div class="section-inner product__inner">
+
+        <div class="product__text">
+          <p class="eyebrow reveal">The Loop</p>
+          <h2 class="product__heading reveal reveal--d1" id="product-heading">
+            Your identity.<br/>Your presence.
+          </h2>
+          <p class="product__body reveal reveal--d2">
+            The Loop is not a profile picture or a status badge.
+            It is the visual representation of how you exist inside Bagel—
+            identity, presence, and connection in one living object.
+          </p>
+          <ul class="product__list reveal reveal--d3" role="list">
+            <li>Standard — visible and welcoming</li>
+            <li>Stealth — present but quiet</li>
+            <li>Incognito — completely invisible</li>
           </ul>
         </div>
-      </div>
-    </section>
 
-    <!-- Download Section -->
-    <section id="download" class="download container">
-      <h2 class="section-title reveal">Get Bagel</h2>
-      <div class="download__grid">
-        <!-- Active Platform -->
-        <div class="platform-card active reveal">
-          <h3>Android</h3>
-          <span class="badge">Developer Preview</span>
-          <a href="#" class="btn btn--primary btn--full">Download APK</a>
-        </div>
-        <!-- Disabled Platforms -->
-        <div class="platform-card disabled reveal reveal--delay">
-          <h3>iOS</h3>
-          <span class="badge badge--ghost">Coming later</span>
-          <button class="btn btn--disabled btn--full" disabled>Unavailable</button>
-        </div>
-        <div class="platform-card disabled reveal reveal--delay-2">
-          <h3>macOS</h3>
-          <span class="badge badge--ghost">Coming later</span>
-          <button class="btn btn--disabled btn--full" disabled>Unavailable</button>
-        </div>
-        <div class="platform-card disabled reveal reveal--delay-3">
-          <h3>Windows & Linux</h3>
-          <span class="badge badge--ghost">Coming later</span>
-          <button class="btn btn--disabled btn--full" disabled>Unavailable</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Roadmap -->
-    <section class="roadmap container reveal">
-      <h2 class="section-title">The Path Forward</h2>
-      <div class="roadmap__timeline">
-        <div class="milestone current">
-          <div class="node"></div>
-          <h4>Developer Preview</h4>
-        </div>
-        <div class="milestone">
-          <div class="node"></div>
-          <h4>Closed Beta</h4>
-        </div>
-        <div class="milestone">
-          <div class="node"></div>
-          <h4>Public Beta</h4>
-        </div>
-        <div class="milestone">
-          <div class="node"></div>
-          <h4>Public Release</h4>
-        </div>
-      </div>
-    </section>
-
-    <!-- Changelog -->
-    <section id="changelog" class="changelog container">
-      <h2 class="section-title reveal">Changelog</h2>
-      <div class="changelog__feed">
-        
-        <!-- Release Entry -->
-        <div class="changelog__entry reveal">
-          <div class="changelog__meta">
-            <h3>v0.1.0</h3>
-            <time>August 2026</time>
-          </div>
-          <div class="changelog__content">
-            <p>The first Developer Preview. This release focuses on core stability and testing our proprietary connection handshake protocol.</p>
-            <ul>
-              <li>Initial application architecture and UI foundation.</li>
-              <li>Basic peer-to-peer messaging capabilities.</li>
-              <li>Local storage encryption implementation.</li>
-            </ul>
-            <a href="#download" class="link-download">Download v0.1.0 &rarr;</a>
+        <div class="product__visual reveal reveal--d1">
+          <!-- Large loop illustration -->
+          <div class="loop-display" aria-hidden="true">
+            <svg viewBox="0 0 280 280" fill="none" class="loop-svg">
+              <defs>
+                <radialGradient id="loopGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#C88A46" stop-opacity="0.12"/>
+                  <stop offset="100%" stop-color="#C88A46" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="loopGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#E8A855"/>
+                  <stop offset="100%" stop-color="#B8722E"/>
+                </linearGradient>
+              </defs>
+              <!-- Glow -->
+              <circle cx="140" cy="140" r="130" fill="url(#loopGlow)"/>
+              <!-- Outer ring hint -->
+              <circle cx="140" cy="140" r="118" stroke="#C88A46" stroke-opacity="0.08" stroke-width="1"/>
+              <!-- Main arc -->
+              <path d="M140 28 A112 112 0 1 1 80 233.5"
+                    stroke="url(#loopGrad)"
+                    stroke-width="3"
+                    stroke-linecap="round"/>
+              <!-- Gap dot -->
+              <circle cx="140" cy="252" r="4.5" fill="#C88A46"/>
+            </svg>
+            <div class="loop-display__label">
+              <span>Standard</span>
+            </div>
           </div>
         </div>
 
       </div>
     </section>
+
+    <!-- ── DOWNLOAD ──────────────────────────────────────────── -->
+    <section class="download" id="download" aria-labelledby="download-heading">
+      <div class="section-inner">
+        <p class="eyebrow reveal">Get started</p>
+        <h2 class="section-heading reveal reveal--d1" id="download-heading">
+          Download Bagel.
+        </h2>
+        <p class="section-sub reveal reveal--d2">
+          Currently in Developer Preview. Android only.
+        </p>
+
+        <div class="platforms reveal reveal--d2">
+
+          <!-- Android — active -->
+          <div class="platform platform--active">
+            <div class="platform__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M16.61 15.15C16.15 15.15 15.77 14.78 15.77 14.32S16.15 13.5 16.61 13.5H16.61C17.07 13.5 17.45 13.88 17.45 14.32C17.45 14.78 17.07 15.15 16.61 15.15M7.41 15.15C6.95 15.15 6.57 14.78 6.57 14.32C6.57 13.88 6.95 13.5 7.41 13.5H7.41C7.87 13.5 8.24 13.88 8.24 14.32C8.24 14.78 7.87 15.15 7.41 15.15M16.91 10.14L18.58 7.26C18.67 7.09 18.61 6.88 18.45 6.79C18.28 6.69 18.07 6.75 17.97 6.91L16.29 9.82C14.95 9.22 13.5 8.9 12 8.9C10.5 8.9 9.05 9.22 7.71 9.82L6.03 6.91C5.93 6.75 5.72 6.69 5.55 6.79C5.39 6.88 5.33 7.09 5.42 7.26L7.09 10.14C4.45 11.53 2.67 14.17 2.5 17.24H21.5C21.33 14.17 19.55 11.53 16.91 10.14Z" fill="#C88A46"/>
+              </svg>
+            </div>
+            <div class="platform__info">
+              <h3 class="platform__name">Android</h3>
+              <p class="platform__status">
+                <!-- CONFIGURABLE -->
+                Developer Preview · v0.1.0
+              </p>
+            </div>
+            <a href="mailto:hellobagelchat@gmail.com?subject=Bagel%20APK%20Request"
+               class="btn btn--primary platform__btn"
+               aria-label="Download Bagel for Android">
+              Download APK
+            </a>
+          </div>
+
+          <!-- iOS — coming later -->
+          <div class="platform platform--disabled" aria-disabled="true">
+            <div class="platform__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="currentColor" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="platform__info">
+              <h3 class="platform__name">iOS</h3>
+              <p class="platform__status">Coming later</p>
+            </div>
+            <span class="platform__soon">Soon</span>
+          </div>
+
+          <!-- Windows — coming later -->
+          <div class="platform platform--disabled" aria-disabled="true">
+            <div class="platform__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M3 5.6L10.7 4.5V11.8H3V5.6zM11.6 4.4L21 3V11.8H11.6V4.4zM3 12.7H10.7V20L3 18.9V12.7zM11.6 12.7H21V20.9L11.6 19.5V12.7z" fill="currentColor" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="platform__info">
+              <h3 class="platform__name">Windows</h3>
+              <p class="platform__status">Coming later</p>
+            </div>
+            <span class="platform__soon">Soon</span>
+          </div>
+
+          <!-- macOS — coming later -->
+          <div class="platform platform--disabled" aria-disabled="true">
+            <div class="platform__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="13" rx="2" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.5"/>
+                <path d="M8 21h8M12 17v4" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="platform__info">
+              <h3 class="platform__name">macOS</h3>
+              <p class="platform__status">Coming later</p>
+            </div>
+            <span class="platform__soon">Soon</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ROADMAP ───────────────────────────────────────────── -->
+    <section class="roadmap" aria-labelledby="roadmap-heading">
+      <div class="section-inner">
+        <p class="eyebrow reveal">Where we are</p>
+        <h2 class="section-heading reveal reveal--d1" id="roadmap-heading">Roadmap.</h2>
+
+        <ol class="milestones reveal reveal--d2" role="list">
+          <li class="milestone milestone--active">
+            <div class="milestone__dot" aria-hidden="true"></div>
+            <div class="milestone__content">
+              <span class="milestone__label">Now</span>
+              <h3 class="milestone__name">Developer Preview</h3>
+              <p class="milestone__desc">Core messaging, Loop identity system, local P2P discovery.</p>
+            </div>
+          </li>
+          <li class="milestone">
+            <div class="milestone__dot" aria-hidden="true"></div>
+            <div class="milestone__content">
+              <h3 class="milestone__name">Closed Beta</h3>
+              <p class="milestone__desc">Groups, media sharing, voice notes, Hub foundation.</p>
+            </div>
+          </li>
+          <li class="milestone">
+            <div class="milestone__dot" aria-hidden="true"></div>
+            <div class="milestone__content">
+              <h3 class="milestone__name">Public Beta</h3>
+              <p class="milestone__desc">iOS, Moments, Timeline, LoopCode scanning.</p>
+            </div>
+          </li>
+          <li class="milestone">
+            <div class="milestone__dot" aria-hidden="true"></div>
+            <div class="milestone__content">
+              <h3 class="milestone__name">Public Release</h3>
+              <p class="milestone__desc">Full platform, encrypted backup, desktop apps.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ── CHANGELOG ─────────────────────────────────────────── -->
+    <section class="changelog" id="changelog" aria-labelledby="changelog-heading">
+      <div class="section-inner">
+        <p class="eyebrow reveal">What's new</p>
+        <h2 class="section-heading reveal reveal--d1" id="changelog-heading">Changelog.</h2>
+
+        <div class="releases">
+
+          <!-- CONFIGURABLE: prepend new releases here -->
+          <article class="release reveal reveal--d2">
+            <div class="release__meta">
+              <span class="release__version">v0.1.0</span>
+              <time class="release__date" datetime="2026-08-06">August 2026</time>
+              <span class="release__channel">Developer Preview</span>
+            </div>
+            <div class="release__body">
+              <h3 class="release__title">First Developer Preview</h3>
+              <ul class="release__notes" role="list">
+                <li>Core messaging with end-to-end encryption</li>
+                <li>Bagel Loop identity and presence system</li>
+                <li>Three presence modes: Standard, Stealth, Incognito</li>
+                <li>Local peer discovery via Nearby Connections</li>
+                <li>Liquid glass design language throughout</li>
+                <li>Offline-first message storage</li>
+                <li>Privacy indicators for mic, camera, location</li>
+              </ul>
+              <a href="mailto:hellobagelchat@gmail.com?subject=Bagel%20APK%20Request"
+                 class="btn btn--ghost release__download">
+                Download APK
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer__inner container">
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
       <div class="footer__brand">
-        <a href="/" class="nav__logo">bagel.</a>
-        <span class="version-text">v0.1.0 (DP1)</span>
+        <svg class="footer__ring" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 3A13 13 0 1 1 8 25.3" stroke="#C88A46" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="16" cy="29" r="1.8" fill="#C88A46"/>
+        </svg>
+        <span class="footer__wordmark">Bagel</span>
       </div>
-      <div class="footer__links">
-        <a href="https://github.com/hellobagel">GitHub</a>
-        <a href="https://instagram.com/bagelchat">Instagram</a>
+
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="https://github.com/hellobagel" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.instagram.com/bagelchat?igsh=MW1mMHhxMHpmMncxcA==" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="mailto:hellobagelchat@gmail.com">Contact</a>
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
-        <a href="#">Contact</a>
+      </nav>
+
+      <div class="footer__right">
+        <!-- CONFIGURABLE -->
+        <span class="footer__version">Developer Preview · v0.1.0</span>
+        <span class="footer__copy">© 2026 Bagel</span>
       </div>
     </div>
   </footer>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
